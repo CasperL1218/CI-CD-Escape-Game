@@ -1,8 +1,8 @@
 jobs:
   build_test:
-    runs-on ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v3
-     - name Install deps
-       run npm install
-     - run npm test
+     - name: Install deps
+       run: npm install
+     - run: npm test
