@@ -12,4 +12,9 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel
       - name: Deploy Preview
-        run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "Error: VERCEL_TOKEN secret is not set"
+            exit 1
+          fi
+          echo "✅ VERCEL_TOKEN is configured!"
