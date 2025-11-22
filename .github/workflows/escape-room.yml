@@ -1,0 +1,13 @@
+name: DevOps Escape Room
+on: [push]
+jobs:
+  build_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install deps
+        run: npm install
+      - name: Run tests
+        run: npm test
+      - name: Build (fake)
+        run: echo "Build successful!" 
